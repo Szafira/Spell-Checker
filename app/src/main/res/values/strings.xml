@@ -1,3 +1,40 @@
 <resources>
-    <string name="app_name">Spell Checker</string>
+    <string name="app_name">SpellChecker</string>
+    <string name="question_label_one">Szukana fraza</string>
+    <string name="question_label_two">Poziom</string>
+    <string name="question_label_three">Klasa</string>
+    <string name="default_answer">Wybierz odpowiedź</string>
+    <string name="default_question">Question:</string>
+
+    <string-array name="answer_list_for_question_one">
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+    </string-array>
+
+    <string-array name="answer_list_for_question_two">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+    <string-array name="answer_list_for_question_three">
+        <item>Barbarian</item>
+        <item>Bard</item>
+        <item>Cleric</item>
+        <item>Druid</item>
+        <item>Fighter</item>
+        <item>Monk</item>
+        <item>Paladin</item>
+        <item>Ranger</item>
+        <item>Rogue</item>
+        <item>Sorcerer</item>
+        <item>Warlock</item>
+        <item>Wizard</item>
+    </string-array>
 </resources>
