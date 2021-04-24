@@ -14,14 +14,16 @@ import com.dnd.spellchecker.databinding.ActivityMainBinding;
 import org.json.JSONObject;
 
 import java.net.HttpURLConnection;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity implements DialogAnswerResult {
 
     private ActivityMainBinding binding;
     private DialogFragment currentDialog;
     JSONObject jsonRead = new JSONObject();
-    String jsonToString = new String();
+
     HttpURLConnection urlConnection = null;
+    String jsonToString =  null;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,19 +35,19 @@ public class MainActivity extends AppCompatActivity implements DialogAnswerResul
 
     }
 
-    public void search(View view) {
+    public void search(View view) throws ExecutionException, InterruptedException {
 
         TextView textView = findViewById(R.id.result_rv);
         String BaseUrl = "https://www.dnd5eapi.co/api/";
         String CategoryUrl = getString(R.string.Spells);
         String fullUrl = BaseUrl + CategoryUrl + "/paladin";
 
-        Async async = new Async();
-        async.execute();
-
+        jsonToString = new Async().execute().get();
+        
         String results = "Test :v";
-        System.out.println(jsonToString);
         System.out.println(results);
+        System.out.println("Dupa2" + jsonToString );
+        textView.setText(jsonToString);
     }
 
     private void setStartUI() {

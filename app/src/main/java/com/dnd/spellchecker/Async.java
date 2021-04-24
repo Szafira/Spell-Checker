@@ -17,11 +17,14 @@ class Async extends AsyncTask<Void, Void, String> {
 
     @Override
     public String doInBackground(Void... params) {
-        HttpURLConnection urlConnection = null;
 
         try {
+
             URL url = new URL("https://www.dnd5eapi.co/api/spells");
+            HttpURLConnection  urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestMethod("GET");
             urlConnection = (HttpURLConnection) url.openConnection();
+
 
             int code = urlConnection.getResponseCode();
             if (code != 200) {
@@ -37,12 +40,12 @@ class Async extends AsyncTask<Void, Void, String> {
 
             }
             jsonToString = jsonRead.toString();
-            System.out.println(jsonToString);
+
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return jsonToString;
     }
+
 }
