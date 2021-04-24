@@ -29,8 +29,8 @@ public class SelectOptionBottomDialogFragment extends BottomSheetDialogFragment 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.typeTv.setText(getQuestionByType(answerType));
-        binding.answersRv.setLayoutManager(new LinearLayoutManager(this.getContext(), RecyclerView.VERTICAL, false));
-        binding.answersRv.setAdapter(new AdapterOfAnswers(answerType, listener));
+        binding.answersTv.setLayoutManager(new LinearLayoutManager(this.getContext(), RecyclerView.VERTICAL, false));
+        binding.answersTv.setAdapter(new AdapterOfAnswers(answerType, listener));
     }
 
     private String getQuestionByType(AnswerType type){

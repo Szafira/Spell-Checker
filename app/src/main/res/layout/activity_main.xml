@@ -51,7 +51,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/option_two" />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <TextView
             android:id="@+id/result_rv"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -67,10 +67,12 @@
             android:id="@+id/buttonSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Szukaj"
+            android:text="Button"
+            android:onClick="search"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/option_three" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
