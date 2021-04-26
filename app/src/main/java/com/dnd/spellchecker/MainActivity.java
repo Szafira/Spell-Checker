@@ -11,20 +11,16 @@ import androidx.fragment.app.DialogFragment;
 
 import com.dnd.spellchecker.databinding.ActivityMainBinding;
 
-import org.json.JSONObject;
-
-import java.net.HttpURLConnection;
 import java.util.concurrent.ExecutionException;
+
+import static com.dnd.spellchecker.AnswerType.OPTION_THREE;
 
 public class MainActivity extends AppCompatActivity implements DialogAnswerResult {
 
     private ActivityMainBinding binding;
     private DialogFragment currentDialog;
-    JSONObject jsonRead = new JSONObject();
-
-    HttpURLConnection urlConnection = null;
-    String jsonToString =  null;
-
+    String CategoryUrl;
+    String answer;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,19 +32,13 @@ public class MainActivity extends AppCompatActivity implements DialogAnswerResul
     }
 
     public void search(View view) throws ExecutionException, InterruptedException {
-
         TextView textView = findViewById(R.id.result_rv);
-        String BaseUrl = "https://www.dnd5eapi.co/api/";
-        String CategoryUrl = getString(R.string.Spells);
-        String fullUrl = BaseUrl + CategoryUrl + "/paladin";
-
-        jsonToString = new Async().execute().get();
-        
-        String results = "Test :v";
-        System.out.println(results);
-        System.out.println("Dupa2" + jsonToString );
-        textView.setText(jsonToString);
+        Async async = new Async();
+        String jsonParser = async.execute().get();
+        textView.setText(jsonParser);
+        System.out.println("Test " + CategoryUrl);
     }
+
 
     private void setStartUI() {
         setListenerForOptionOne();
@@ -89,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements DialogAnswerResul
         binding.optionThree.backgroundCl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openDialogWithAnswers(AnswerType.OPTION_THREE);
+                openDialogWithAnswers(OPTION_THREE);
 
             }
         });
@@ -109,11 +99,18 @@ public class MainActivity extends AppCompatActivity implements DialogAnswerResul
                 break;
             case OPTION_THREE:
                 binding.optionThree.answersTv.setText(answer);
+                CategoryUrl = answer;
                 break;
-
-
         }
+
         currentDialog.dismiss();
+
+
+    }
+    public String CategoryUrl()
+    {
+
+        return CategoryUrl;
     }
 }
 

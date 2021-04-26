@@ -33,7 +33,7 @@ public class SelectOptionBottomDialogFragment extends BottomSheetDialogFragment 
         binding.answersTv.setAdapter(new AdapterOfAnswers(answerType, listener));
     }
 
-    private String getQuestionByType(AnswerType type){
+    public String getQuestionByType(AnswerType type){
         String textToReturn = "";
         switch (type){
             case OPTION_ONE:
