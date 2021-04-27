@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements DialogAnswerResul
     private ActivityMainBinding binding;
     private DialogFragment currentDialog;
     String CategoryUrl;
-    String answer;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements DialogAnswerResul
         Async async = new Async();
         String jsonParser = async.execute().get();
         textView.setText(jsonParser);
-        System.out.println("Test " + CategoryUrl);
+
     }
 
 
@@ -113,5 +113,3 @@ public class MainActivity extends AppCompatActivity implements DialogAnswerResul
         return CategoryUrl;
     }
 }
-
-

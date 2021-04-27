@@ -29,7 +29,8 @@ class Async extends AsyncTask<Void, Void, String> {
             String BaseUrl = "https://www.dnd5eapi.co/api/classes/";
             String fullUrl = BaseUrl + CategoryUrl + "/spells";
 
-            URL url = new URL(fullUrl);
+            System.out.println(fullUrl);
+            URL url = new URL("https://www.dnd5eapi.co/api/classes/bard/spells");
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection = (HttpURLConnection) url.openConnection();
@@ -53,12 +54,13 @@ class Async extends AsyncTask<Void, Void, String> {
             jsonToString = results.toString();
             Integer spellCount = jsonParsed.getInt("count");
 
+
             for (int i = 0; i < spellCount; i++)
             { jsonRead = results.getJSONObject(i);
-                System.out.println("For test" + jsonRead);
                 jsonRead = results.getJSONObject(i);
 
                 finalResults = finalResults +"\n"+ i +"\n"+jsonRead.getString("name");
+
             }
 
         } catch (Exception e) {
