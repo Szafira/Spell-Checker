@@ -3,7 +3,7 @@ Spell-checker
 
 ##General info
 The application has been created for "Dungeon and Dragons" players. It allows to check per character class which spells are available for them.
-The informations are taken from D&D5eapi in json format and parsed to show. 
+The informations are taken from D&D5eapi in json format and parsed before being displayed.
 
 ## Technologies
 	This project was created with the use of:
